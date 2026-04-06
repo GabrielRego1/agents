@@ -48,7 +48,8 @@ Each layer should expose a single entry point:
 ```csharp
 public static class DependencyInjection
 {
-    public static IServiceCollection AddApplication(this IServiceCollection services) => services;
+    public static IServiceCollection AddApplication(this IServiceCollection services) 
+        => services;
 }
 ```
 
@@ -59,16 +60,15 @@ public static class DependencyInjection
 
 
 ---
-
 # General Code Rules
 - Follow C# coding conventions (PascalCase for types and methods, camelCase for variables and parameters).
-- Use meaningful names for variables, methods, and classes. Avoid abbreviations and single-letter names except for loop counters.
+- Use meaningful names for variables, methods, and classes. Avoid abbreviations and single-letter names.
 - Keep methods short and focused on a single responsibility. Aim for 20 lines or less when possible.
 - The code should be self-explanatory about what it does. Avoid redundant comments that just restate the code. Instead, focus on explaining the intent and rationale behind complex logic or decisions.
 - Avoid magic numbers and strings. Use constants or enums instead.
 - Handle exceptions gracefully. Use try-catch blocks where appropriate and log exceptions with sufficient
 
-## C#  Best Practices 
+## C# and .NET  Best Practices 
 
 - Prefer `async/await` for I/O operations. Avoid blocking calls (`.Result`, `.Wait()`) to prevent deadlocks and improve scalability.
 - Prefer `var` when the type is obvious from the right-hand side. Use explicit types when it improves readability.
@@ -79,6 +79,7 @@ public static class DependencyInjection
 - Use `record` for models
 - Modern C# Features: Utilize modern language features (e.g., records, pattern matching) to write concise and robust code.
 - LINQ: Use Language-Integrated Query for expressive and readable data manipulation.
+- Prefer use `IOptions<T>` for configuration settings to leverage built-in validation and binding features. Instead of directly injecting `IConfiguration` and manually binding configuration sections.
 
 
 ---
@@ -164,21 +165,9 @@ public static class DependencyInjection
     - Outbox Pattern
 
 ---
-
-## Code Style
-
-- Write self-explanatory code
-- Prefer small, focused methods
-- Avoid deep nesting
-
-- Naming:
-    - Use clear, intention-revealing names
-    - Avoid abbreviations
-
----
 ## Testing
 
-- Write unit tests using xUnit or NUnit
+- Write unit tests using xUnit
 - Use Moq for mocking
 
 - Follow:
